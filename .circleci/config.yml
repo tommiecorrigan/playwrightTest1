@@ -35,6 +35,15 @@ jobs:
 
 workflows:
   version: 2
+  # Runs on *every push* to master
+  on-commit:
+    jobs:
+      - playwright-tests:
+          filters:
+            branches:
+              only:
+                - master
+# Runs on schedule
   nightly-playwright:
     triggers:
       - schedule:
