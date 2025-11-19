@@ -5,7 +5,7 @@ const isCI = !!process.env.CI;
 export default defineConfig({
   testDir: './tests',
   reporter: [
-    ['line'], // prints to terminal
+    ['list'], // prints to terminal
     ['html', { open: 'never' }], // generates HTML report
   ],
   use: {
