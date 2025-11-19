@@ -43,7 +43,7 @@ workflows:
             branches:
               only:
                 - master
-# Runs on schedule
+# Runs on schedule (test commit)
   nightly-playwright:
     triggers:
       - schedule:
