@@ -13,7 +13,7 @@ export default defineConfig({
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     trace: 'retain-on-failure',
-    viewport: { width: 1920, height: 1080 },
+    viewport: isCI ? { width: 1920, height: 1080 } : null,
     launchOptions: {
       args: ['--start-maximized'],
       },

@@ -7,7 +7,7 @@ export class HomePage {
   constructor(page) {
     this.page = page;
     // URL for this page
-    this.url = 'https://www.dutch.com/';
+    this.homepageUrl = 'https://www.dutch.com/';
     // Header selectors (top nav)
     this.whatWeTreatLink = 'text=What We Treat';
     this.pharmacyStoreLink = 'text=Pharmacy & Store';
@@ -22,7 +22,7 @@ export class HomePage {
   }
 
   async goto() {
-    await this.page.goto(this.url);
+    await this.page.goto(this.homepageUrl);
   }
 
   async checkHeaderLinks() {
@@ -55,7 +55,7 @@ export class HomePage {
 
 async goToDogAllergyPage() {
   const { page } = this;
-  await page.goto(this.url);
+  await page.goto(this.homepageUrl);
   await page.getByRole('link', { name: 'What we treat' }).hover();
 
   await page.getByRole('link', { name: 'Dogs', exact: true }).hover();
@@ -64,7 +64,7 @@ async goToDogAllergyPage() {
 }
 async goToCatAllergyPage() {
   const { page } = this;
-  await page.goto(this.url);
+  await page.goto(this.homepageUrl);
   await page.getByRole('link', { name: 'What we treat' }).hover();
 
   await page.getByRole('link', { name: 'Cats', exact: true }).hover();
@@ -77,7 +77,10 @@ async goToCatAllergyPage() {
 
   }
 
-  async getHeroTitleText() {
-    return this.page.textContent(this.heroTitle);
-  }
+ async clickJoinNow(){
+    const { page } = this;
+    await page.goto(this.homepageUrl);
+    await page.getByRole('link', { name: 'Join Now' }).click();
+    await expect(this.page).toHaveURL(/.*register/);
+ }
 }

@@ -33,6 +33,9 @@ jobs:
           path: playwright-report
           destination: playwright-report
 
+      - store_test_results:
+          path: test-results
+
 workflows:
   version: 2
   # Runs on *every push* to master
