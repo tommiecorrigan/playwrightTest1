@@ -1,4 +1,4 @@
-# PlaywrightTest1
+# DutchTest
 
 Playwright tests for Dutch.com header and allergy navigation.
 
